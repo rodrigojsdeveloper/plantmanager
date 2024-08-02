@@ -1,20 +1,24 @@
-import { StyleSheet, Text, Image } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Icon from "react-native-vector-icons/AntDesign"
-import wateringImg from '@/assets/watering.png'
 import colors from "@/styles/colors";
 import { Button } from "@/components/button";
+import { ArrowRightIcon } from "@/components/arrow-right";
+import { WateringIcon } from "@/components/watering";
 
 export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Gerencie {'\n'}suas plantas de{'\n'} forma fácil</Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>Gerencie {'\n'}suas plantas de{'\n'} forma fácil</Text>
 
-      <Image source={wateringImg} style={styles.image} />
+        <WateringIcon />
 
-      <Text style={styles.subtitle}>Não esqueça mais de regar suas{'\n'} plantas. Nós cuidamos de lembrar você{'\n'} sempre que precisar.</Text>
+        <Text style={styles.subtitle}>Não esqueça mais de regar suas{'\n'} plantas. Nós cuidamos de lembrar você{'\n'} sempre que precisar.</Text>
+      </View>
 
-      <Button activeOpacity={0.7}><Icon name="right" size={15} /></Button>
+      <Button activeOpacity={0.7}>
+        <ArrowRightIcon />
+      </Button>
     </SafeAreaView>
   );
 }
@@ -26,17 +30,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.white
   },
+  content: {
+    gap: 49,
+  },
   title: {
     fontWeight: '600',
     fontSize: 32,
     lineHeight: 38,
     textAlign: 'center',
     color: colors.heading,
-  },
-  image: {
-    width: 292.13,
-    height: 284.3,
-    marginVertical: 49,
   },
   subtitle: {
     fontWeight: '400',
