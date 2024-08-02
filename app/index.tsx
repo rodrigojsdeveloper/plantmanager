@@ -1,24 +1,20 @@
-import { StyleSheet, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Icon from "react-native-vector-icons/AntDesign"
 import wateringImg from '@/assets/watering.png'
 import colors from "@/styles/colors";
+import { Button } from "@/components/button";
 
 export default function Index() {
   return (
-    <SafeAreaView
-      style={styles.container}
-    >
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Gerencie {'\n'}suas plantas de{'\n'} forma fácil</Text>
 
       <Image source={wateringImg} style={styles.image} />
 
       <Text style={styles.subtitle}>Não esqueça mais de regar suas{'\n'} plantas. Nós cuidamos de lembrar você{'\n'} sempre que precisar.</Text>
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.7}>
-        <Text style={styles.buttonText}>
-          Go
-        </Text>
-      </TouchableOpacity>
+      <Button activeOpacity={0.7}><Icon name="right" size={15} /></Button>
     </SafeAreaView>
   );
 }
@@ -40,7 +36,7 @@ const styles = StyleSheet.create({
   image: {
     width: 292.13,
     height: 284.3,
-    marginVertical: 49
+    marginVertical: 49,
   },
   subtitle: {
     fontWeight: '400',
@@ -49,17 +45,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: colors.heading,
     marginBottom: 47
-  },
-  button: {
-    width: 56,
-    height: 56,
-    padding: 5,
-    backgroundColor: colors.green,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: colors.white,
   }
 })
