@@ -1,11 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import colors from "@/styles/colors";
+import { useFonts } from "expo-font";
 import { Button } from "@/components/button";
 import { ArrowRightIcon } from "@/components/arrow-right";
 import { WateringIcon } from "@/components/watering";
+import colors from "@/styles/colors";
 
 export default function Index() {
+  const [fontsLoaded] = useFonts({
+    'Jost-Regular': require('@/assets/fonts/Jost-Regular.ttf'),
+    'Jost-SemiBold': require('@/assets/fonts/Jost-SemiBold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -34,6 +44,7 @@ const styles = StyleSheet.create({
     gap: 49,
   },
   title: {
+    fontFamily: 'Jost-SemiBold',
     fontWeight: '600',
     fontSize: 32,
     lineHeight: 38,
@@ -41,6 +52,7 @@ const styles = StyleSheet.create({
     color: colors.heading,
   },
   subtitle: {
+    fontFamily: 'Jost-Regular',
     fontWeight: '400',
     fontSize: 17,
     lineHeight: 25,
